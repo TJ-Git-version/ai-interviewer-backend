@@ -2,4 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itfelix.mapper.InterviewQuestionMapper">
 
+    <select id="selectQuestionPage" resultType="com.itfelix.model.vo.InterviewQuestionVO">
+        SELECT
+            q.id,
+            q.interviewer_id,
+            i.name AS interviewerName,
+            q.question,
+            q.reference_answer,
+            q.ai_interviewer_video_url,
+            q.status,
+            q.create_time,
+            q.update_time
+        FROM interview_question q
+        LEFT JOIN interviewer i ON q.interviewer_id = i.id
+        <where>
+            <if test="query.question != null and query.question != ''">
+                AND q.question LIKE CONCAT('%', #{query.question}, '%')
+            </if>
+            <if test="query.interviewerName != null and query.interviewerName != ''">
+                AND i.name LIKE CONCAT('%', #{query.interviewerName}, '%')
+            </if>
+        </where>
+        ORDER BY q.create_time DESC
+    </select>
+
 </mapper>

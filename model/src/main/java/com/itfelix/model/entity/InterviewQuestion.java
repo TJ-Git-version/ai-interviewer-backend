@@ -61,7 +61,7 @@ public class InterviewQuestion implements Serializable {
      * 状态：0-禁用，1-启用
      */
     @TableField("status")
-    private Byte status;
+    private Integer status;
 
     /**
      * 创建时间

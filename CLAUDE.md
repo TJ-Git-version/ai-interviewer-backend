@@ -43,6 +43,10 @@ model/src/main/java/com/itfelix/model/
 ├── vo/              # 视图对象（返回给前端）
 ├── common/          # 通用响应封装（Result、PageResult）
 └── enums/           # 枚举类（如状态枚举）
+
+common/src/main/java/com/itfelix/common/
+├── config/          # 配置类（CorsConfig、Knife4jConfig）
+└── exception/       # 异常类（BizException、GlobalExceptionHandler）
 ```
 
 **注意**：禁止在 api 模块下直接创建 dto/vo/common/enums，必须放在 model 模块下
@@ -79,6 +83,8 @@ model/src/main/java/com/itfelix/model/
 - **分页方式**：必须使用 PageHelper 插件，禁止使用 MyBatis-Plus 的 `Page<>` 手动分页
 - **链表查询**：需要关联查询的必须编写 XML SQL 实现，禁止在 Java 代码中循环查询
 - **日期格式**：LocalDateTime 类型字段在 VO 中必须添加 `@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")` 注解，确保响应格式统一
+- **唯一性校验**：创建/更新业务必须先校验字段唯一性（如名称唯一），通过 XML SQL 查询禁止硬编码
+- **全局异常处理**：使用 `BizException` 抛出业务异常，配合 `GlobalExceptionHandler` 统一处理，禁止直接返回错误信息
 
 ### 通用响应结构
 ```java
@@ -123,8 +129,20 @@ public PageResult<InterviewQuestionVO> list(InterviewQuestionQueryDTO queryDTO) 
 ```
 
 ### 包路径规范
-- Entity: `com.itfelix.model.InterviewQuestion`
-- DTO: `com.itfelix.model.dto.InterviewQuestionCreateDTO`
-- VO: `com.itfelix.model.vo.InterviewQuestionVO`
+- Entity: `com.itfelix.model.entity.Interviewer`
+- DTO: `com.itfelix.model.dto.InterviewerDTO`
+- VO: `com.itfelix.model.vo.InterviewerVO`
 - Common: `com.itfelix.model.common.Result`
 - Enums: `com.itfelix.model.enums.StatusEnum`
+- Exception: `com.itfelix.common.exception.BizException`
+
+### 异常处理示例
+```java
+// 业务异常抛出
+if (interviewer == null) {
+    throw new BizException("面试官不存在");
+}
+if (existingByName != null && !existingByName.getId().equals(dto.getId())) {
+    throw new BizException("面试官名称已存在");
+}
+```

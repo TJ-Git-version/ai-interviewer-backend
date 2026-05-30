@@ -19,15 +19,25 @@
 
     <!-- 公共模块，存放可复用代码、工具类等-->
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
+        <!--工程相关依赖-->
         <dependency>
             <groupId>com.itfelix</groupId>
             <artifactId>model</artifactId>
             <version>1.0.0</version>
         </dependency>
+
+        <!--测试依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+        <!--配置处理器依赖，作用是生成配置元数据-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

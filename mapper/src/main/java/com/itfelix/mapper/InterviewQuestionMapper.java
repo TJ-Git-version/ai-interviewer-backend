@@ -1,7 +1,7 @@
 package com.itfelix.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.itfelix.entity.InterviewQuestion;
+import com.itfelix.model.entity.InterviewQuestion;
 
 /**
  * <p>

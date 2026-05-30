@@ -1,7 +1,7 @@
 package com.itfelix.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.itfelix.entity.InterviewQuestion;
+import com.itfelix.model.entity.InterviewQuestion;
 
 /**
  * <p>

@@ -1,8 +1,8 @@
 package com.itfelix.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.itfelix.entity.InterviewRecord;
 import com.itfelix.mapper.InterviewRecordMapper;
+import com.itfelix.model.entity.InterviewRecord;
 import com.itfelix.service.IInterviewRecordService;
 import org.springframework.stereotype.Service;
 

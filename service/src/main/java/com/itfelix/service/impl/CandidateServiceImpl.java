@@ -1,8 +1,8 @@
 package com.itfelix.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.itfelix.entity.Candidate;
 import com.itfelix.mapper.CandidateMapper;
+import com.itfelix.model.entity.Candidate;
 import com.itfelix.service.ICandidateService;
 import org.springframework.stereotype.Service;
 

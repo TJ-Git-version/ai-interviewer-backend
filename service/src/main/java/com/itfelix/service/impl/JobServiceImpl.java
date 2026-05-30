@@ -1,8 +1,8 @@
 package com.itfelix.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.itfelix.entity.Job;
 import com.itfelix.mapper.JobMapper;
+import com.itfelix.model.entity.Job;
 import com.itfelix.service.IJobService;
 import org.springframework.stereotype.Service;
 

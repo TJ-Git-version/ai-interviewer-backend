@@ -1,7 +1,7 @@
 package com.itfelix.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.itfelix.entity.Candidate;
+import com.itfelix.model.entity.Candidate;
 
 /**
  * <p>

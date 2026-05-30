@@ -10,6 +10,7 @@ spring:
   profiles:
     active: dev # dev-开发环境；prod-生产环境；test-测试环境
   datasource:
+    type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/ai_interviewer?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: ai_interviewer_user
@@ -19,11 +20,11 @@ spring:
       minimum-idle: 5
       # 最大连接池 20
       maximum-pool-size: 20
-      # 空闲超时 5 分钟
+      # 空闲超时 5 分钟，超时会自动释放
       idle-timeout: 300000
       # 连接池名称
       pool-name: HikariCP-AIInterviewer
-      # 连接最大生命周期 30 分钟
+      # 连接最大生命周期 30 分钟，超时会自动释放
       max-lifetime: 1800000
       # 连接超时 30 秒
       connection-timeout: 30000
@@ -38,3 +39,21 @@ spring:
     locations: classpath:db/migration
     baseline-on-migrate: true
     baseline-version: 0
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+  global-config:
+    db-config:
+      id-type: assign_id
+      # 为空值不更新
+      update-strategy: not_empty
+    banner: false
+
+# pagehelper 配置
+pagehelper:
+  helper-dialect: MYSQL
+  # 是否支持方法参数的分页参数
+  support-methods-arguments: true

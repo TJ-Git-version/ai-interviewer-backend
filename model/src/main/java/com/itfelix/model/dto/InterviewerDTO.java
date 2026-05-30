@@ -1,6 +1,7 @@
 package com.itfelix.model.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -16,6 +17,7 @@ public class InterviewerDTO implements Serializable {
     private Long id;
 
     @Schema(description = "面试官名称")
+    @NotBlank(message = "面试官名称不能为空")
     @Size(max = 50, message = "面试官名称不能超过50个字符")
     private String name;
 

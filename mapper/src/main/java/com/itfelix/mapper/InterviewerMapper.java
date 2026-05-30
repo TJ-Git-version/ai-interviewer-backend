@@ -2,6 +2,7 @@ package com.itfelix.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.itfelix.model.entity.Interviewer;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -13,4 +14,8 @@ import com.itfelix.model.entity.Interviewer;
  */
 public interface InterviewerMapper extends BaseMapper<Interviewer> {
 
+    /**
+     * 根据名称查询面试官（用于唯一性校验）
+     */
+    Interviewer selectByName(@Param("name") String name);
 }

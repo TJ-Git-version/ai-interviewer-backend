@@ -19,6 +19,12 @@
 
     <!-- 公共模块，存放可复用代码、工具类等-->
     <dependencies>
+        <dependency>
+            <groupId>com.itfelix</groupId>
+            <artifactId>model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <!--简化开发-->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -127,12 +133,6 @@
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-        </dependency>
-
-        <!--knife4j-->
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 

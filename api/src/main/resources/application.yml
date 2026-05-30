@@ -39,6 +39,10 @@ spring:
     locations: classpath:db/migration
     baseline-on-migrate: true
     baseline-version: 0
+  jackson:
+    date-format: "yyyy-MM-dd HH:mm:ss"
+    time-zone: GMT+8
+    default-property-inclusion: non_null
 
 # MyBatis-Plus 配置
 mybatis-plus:
@@ -52,8 +56,13 @@ mybatis-plus:
       update-strategy: not_empty
     banner: false
 
-# pagehelper 配置
-pagehelper:
-  helper-dialect: MYSQL
-  # 是否支持方法参数的分页参数
-  support-methods-arguments: true
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+    enable-debug: true
+  basic:
+    enable: true
+    username: admin
+    password: admin
+  cors: true
